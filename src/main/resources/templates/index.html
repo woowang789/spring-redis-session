@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="my-4">
+        <h2>홈12344</h2>
+        <div sec:authorize="isAuthenticated()">
+            <p th:text="|${#authentication.principal.getMember().getNick()}님 환영합니다.|"></p>
+            <p th:text="|현재 ${#authentication.principal.getMember().getNick()} 님의 권한 : ${#authentication.principal.getMember().getRole()}|"></p>
+            <ul>
+                <li th:text="|session.getId = ${#session.getId()}|"></li>
+                <li th:text="|session.getAttributeNames = ${#session.getAttributeNames()}|"></li>
+                <li th:text="|session.getCreationTime = ${#session.getCreationTime()}|"></li>
+            </ul>
+        </div>
+        <div class="btn">
+            <a th:href="@{/signup}">
+                <button class="btn btn-lg btn-secondary">회원가입</button>
+            </a>
+            <a th:href="@{/signin}">
+                <button sec:authorize="!isAuthenticated()" class="btn btn-lg btn-dark">로그인</button>
+            </a>
+            <a th:href="@{/logout}">
+                <button sec:authorize="isAuthenticated()" class="btn btn-danger btn-lg">로그아웃</button>
+            </a>
+
+            <hr class="my-4">
+            <a th:href="@{/admin/home}"><button class="btn btn-lg btn-dark">ADMIN page 접근 </button></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
