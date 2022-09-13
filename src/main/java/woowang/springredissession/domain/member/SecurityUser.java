@@ -5,9 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -18,10 +16,10 @@ import java.util.Collections;
 @Getter
 @Setter
 @AllArgsConstructor
-public class SecurityUser implements UserDetails {
+public class SecurityUser implements UserDetails{
     private Member member;
-    private PasswordEncoder passwordEncoder;
 
+    transient private PasswordEncoder passwordEncoder;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

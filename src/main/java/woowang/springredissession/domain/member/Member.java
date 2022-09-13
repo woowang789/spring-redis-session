@@ -6,11 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member implements Serializable {
 
     @Id
     @GeneratedValue
@@ -23,6 +24,7 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
 
 
     @Builder
