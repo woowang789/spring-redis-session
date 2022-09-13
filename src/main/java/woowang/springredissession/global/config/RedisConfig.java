@@ -1,4 +1,4 @@
-package woowang.springredissession.domain.auth;
+package woowang.springredissession.global.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

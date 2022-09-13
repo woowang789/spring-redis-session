@@ -25,8 +25,6 @@ public class Member implements Serializable {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-
-
     @Builder
     public Member(String email, String nick, String password,Role role) {
         this.email = email;

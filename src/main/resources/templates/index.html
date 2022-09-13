@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <div class="my-4">
-        <h2>홈12344</h2>
+        <h2>홈</h2>
         <div sec:authorize="isAuthenticated()">
             <p th:text="|${#authentication.principal.getMember().getNick()}님 환영합니다.|"></p>
             <p th:text="|현재 ${#authentication.principal.getMember().getNick()} 님의 권한 : ${#authentication.principal.getMember().getRole()}|"></p>
@@ -21,9 +21,11 @@
             </ul>
         </div>
         <div class="btn">
-            <a th:href="@{/signup}">
-                <button class="btn btn-lg btn-secondary">회원가입</button>
-            </a>
+            <div sec:authorize="${not isAuthenticated()}">
+                <a th:href="@{/signup}">
+                    <button class="btn btn-lg btn-secondary">회원가입</button>
+                </a>
+            </div>
             <a th:href="@{/signin}">
                 <button sec:authorize="!isAuthenticated()" class="btn btn-lg btn-dark">로그인</button>
             </a>

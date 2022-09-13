@@ -19,5 +19,4 @@ public class SpringRedisSessionApplication {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

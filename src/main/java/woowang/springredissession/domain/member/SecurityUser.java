@@ -13,8 +13,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Slf4j
-@Getter
-@Setter
+@Getter @Setter
 @AllArgsConstructor
 public class SecurityUser implements UserDetails{
     private Member member;
